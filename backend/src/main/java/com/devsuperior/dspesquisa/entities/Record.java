@@ -2,6 +2,7 @@ package com.devsuperior.dspesquisa.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_record")
@@ -22,6 +25,7 @@ public class Record implements Serializable{
 	private Integer age;
 	private Instant moment;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "game_id")
 	private Game game;
